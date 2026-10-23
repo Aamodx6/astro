@@ -1,79 +1,77 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { siteConfig } from '../data/site';
-import '../styles/global.css';
-
 interface Props {
   title?: string;
   description?: string;
+  dataWfPage?: string;
   image?: string;
-  type?: 'website' | 'article';
-  canonicalUrl?: string;
 }
 
 const {
-  title = siteConfig.title,
-  description = siteConfig.description,
-  image = '/images/about.webp',
-  type = 'website',
-  canonicalUrl = Astro.url.href,
+  title = "Creative studio powering AI, brands & digital futures — Soale",
+  description = "A premium Webflow agency template for AI brands, SaaS startups, and creative studios. Perfect for agencies, consultancies, and product teams to showcase services, case studies, and blogs with sleek, responsive, CMS-powered design.",
+  dataWfPage = "6880e261cef3bfa6896ed9e5",
+  image = "/images/about.webp"
 } = Astro.props;
-
-const pageTitle = title.includes('Soale Astra') ? title : `${title} | Soale Astra`;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-wf-page={dataWfPage} class="w-mod-js w-mod-ix">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Soale Astra Insights" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Soale Astro Themes" href="/rss.xml" />
+    <link rel="canonical" href={Astro.url.href} />
 
-    <title>{pageTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={pageTitle} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image.startsWith('http') ? image : `${siteConfig.url}${image}`} />
-    <meta property="og:site_name" content="Soale Astra" />
+    <meta property="og:image" content={image} />
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image.startsWith('http') ? image : `${siteConfig.url}${image}`} />
-
-    <!-- Google Fonts Preconnect & Async Load -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts: Inter Tight & IBM Plex Mono -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Original BaseHead CSS -->
+    <link rel="stylesheet" href="/_astro/BaseHead.DDVPNTYp.css" />
+
+    <style is:global>
+      /* Ensure everything displays with complete visibility immediately */
+      [style*="opacity:0"], [style*="opacity: 0"] {
+        opacity: 1 !important;
+        filter: none !important;
+      }
+      .w-slider-dot {
+        background-color: #ffffff80;
+        border-radius: 100px;
+        width: 8px;
+        height: 8px;
+        margin: 0;
+        transition: all 0.3s ease-in-out;
+      }
+      .w-slider-dot.w-active {
+        background-color: #fff;
+        width: 24px;
+        height: 8px;
+        border-radius: 100px !important;
+      }
+    </style>
   </head>
-  <body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-950">
-    <!-- Skip to main content for accessibility -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white rounded-lg font-mono text-xs shadow-lg"
-    >
-      Skip to content
-    </a>
+  <body class="body">
+    <slot />
 
-    <Header />
-
-    <main id="main-content" class="flex-grow pt-20">
-      <slot />
-    </main>
-
-    <Footer />
+    <script is:inline src="/js/jquery.min.js"></script>
+    <script is:inline src="/js/site.min.js"></script>
   </body>
 </html>

@@ -1,162 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import blogData from '../../data/blog.json';
-import CtaBanner from '../../components/CtaBanner.astro';
+import blogFull from '../../data/blog-full.json';
 
 export async function getStaticPaths() {
-  return blogData.map((post, idx) => {
-    const prevPost = idx > 0 ? blogData[idx - 1] : blogData[blogData.length - 1];
-    const nextPost = idx < blogData.length - 1 ? blogData[idx + 1] : blogData[0];
-    return {
-      params: { slug: post.slug },
-      props: { post, prevPost, nextPost }
-    };
-  });
+  return blogFull.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
 }
 
-const { post, prevPost, nextPost } = Astro.props;
+const { entry } = Astro.props;
 ---
 
 <Layout
-  title={`${post.title} | Soale Astra Insights`}
-  description={post.description}
-  image={post.image}
-  type="article"
+  title={entry.title}
+  description={entry.desc}
+  dataWfPage={entry.dataWfPage}
 >
-  <!-- Article Header -->
-  <article class="py-16 sm:py-24 bg-neutral-950 text-white relative overflow-hidden">
-    <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
-
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
-      
-      <!-- Back Link -->
-      <a href="/blog" class="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="m15 18-6-6 6-6"></path>
-        </svg>
-        <span>Back to Insights Index</span>
-      </a>
-
-      <!-- Category & Date Meta -->
-      <div class="flex items-center gap-3 font-mono text-xs text-neutral-400">
-        <span class="px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-indigo-400 font-semibold">
-          {post.category}
-        </span>
-        <span>•</span>
-        <time datetime={post.isoDate}>{post.date}</time>
-        <span>•</span>
-        <span>{post.readTime}</span>
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="display-section font-display font-extrabold tracking-tight text-white">
-        {post.title}
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-neutral-300 text-lg sm:text-xl font-normal leading-relaxed">
-        {post.description}
-      </p>
-
-      <!-- Author Attribution -->
-      <div class="pt-6 border-t border-neutral-800 flex items-center gap-4">
-        <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-mono font-bold text-xs text-white">
-          SA
-        </div>
-        <div>
-          <div class="font-display font-semibold text-sm text-white">{post.author}</div>
-          <div class="text-xs font-mono text-neutral-400">{post.authorRole}</div>
-        </div>
-      </div>
-
-    </div>
-  </article>
-
-  <!-- Large Featured Hero Image -->
-  <div class="bg-neutral-900 py-8 border-b border-neutral-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-800 shadow-xl">
-        <img
-          src={post.image}
-          alt={post.title}
-          class="w-full h-auto object-cover max-h-[550px]"
-          loading="eager"
-        />
-      </div>
-    </div>
-  </div>
-
-  <!-- Editorial Article Body -->
-  <section class="py-16 sm:py-24 bg-white text-neutral-900">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="prose prose-neutral prose-lg max-w-none space-y-12">
-        {post.sections && post.sections.map((section, idx) => (
-          <div class="space-y-4">
-            {section.heading && (
-              <h2 class="font-display font-bold text-2xl sm:text-3xl text-neutral-950 tracking-tight pt-4">
-                {section.heading}
-              </h2>
-            )}
-            {section.paragraphs.map(p => (
-              <p class="text-neutral-700 text-base sm:text-lg leading-relaxed font-normal">
-                {p}
-              </p>
-            ))}
-          </div>
-        ))}
-      </div>
-
-      <!-- Article Footer Tags -->
-      <div class="mt-16 pt-8 border-t border-neutral-200 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-mono text-neutral-400">Filed under:</span>
-          <span class="px-2.5 py-1 rounded bg-neutral-100 text-xs font-mono text-neutral-700">#{post.category}</span>
-          <span class="px-2.5 py-1 rounded bg-neutral-100 text-xs font-mono text-neutral-700">#ProductDesign</span>
-          <span class="px-2.5 py-1 rounded bg-neutral-100 text-xs font-mono text-neutral-700">#AI</span>
-        </div>
-
-        <a
-          href="/blog"
-          class="text-xs font-mono font-semibold text-indigo-600 hover:underline inline-flex items-center gap-1"
-        >
-          <span>← Back to all articles</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Previous / Next Article Navigation -->
-  <section class="py-12 bg-neutral-50 border-t border-b border-neutral-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        
-        <a
-          href={`/blog/${prevPost.slug}`}
-          class="group p-6 rounded-2xl bg-white border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all flex flex-col justify-between"
-        >
-          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">← Previous Insight</div>
-          <div class="font-display font-bold text-base text-neutral-950 group-hover:text-indigo-600 transition-colors">
-            {prevPost.title}
-          </div>
-          <div class="text-xs font-mono text-neutral-500 mt-2">{prevPost.readTime}</div>
-        </a>
-
-        <a
-          href={`/blog/${nextPost.slug}`}
-          class="group p-6 rounded-2xl bg-white border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all flex flex-col justify-between text-right"
-        >
-          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">Next Insight →</div>
-          <div class="font-display font-bold text-base text-neutral-950 group-hover:text-indigo-600 transition-colors">
-            {nextPost.title}
-          </div>
-          <div class="text-xs font-mono text-neutral-500 mt-2">{nextPost.readTime}</div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <CtaBanner />
+  <Fragment set:html={entry.body} />
 </Layout>

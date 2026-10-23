@@ -1,85 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const updates = [
-  {
-    version: 'v2.4.0',
-    date: 'October 2026',
-    title: 'Complete Studio Redesign & Architecture Elevation',
-    notes: [
-      'Engineered complete custom Astro static architecture, eliminating all Webflow runtime and jQuery baggage.',
-      'Constructed new high-contrast editorial art direction with Plus Jakarta Sans and JetBrains Mono.',
-      'Implemented real-time client-side interactive monthly/annual pricing calculator with 20% savings.',
-      'Added interactive multi-category case study filtering across all 9 portfolio projects.',
-      'Upgraded WCAG 2.2 AA accessibility score, visible keyboard focus rings, and dark/light narrative pacing.'
-    ]
-  },
-  {
-    version: 'v2.1.0',
-    date: 'August 2026',
-    title: 'Agentic UX & Prompt Ergonomics Practice Launch',
-    notes: [
-      'Published field research on multi-agent workflow cognitive loads.',
-      'Standardized token streaming latency guidelines across all client AI dashboards.',
-      'Introduced Sprint MVP 2-week zero-to-one validation framework.'
-    ]
-  },
-  {
-    version: 'v1.8.0',
-    date: 'March 2026',
-    title: 'Design System Token Automation',
-    notes: [
-      'Integrated Figma REST API token pipelines into Git repositories for automated Tailwind variables.',
-      'Expanded client design roster across healthcare, devtools, and fintech verticals.'
-    ]
-  }
-];
 ---
 
 <Layout
-  title="Studio Changelog & System Releases | Soale Astra"
-  description="Historical release log of design system evolutions, studio methodology upgrades, and architectural enhancements at Soale Astra."
+  title="Changelog - Soale - Astro HTML website template"
+  description="A premium Webflow agency template for AI brands, SaaS startups, and creative studios. Perfect for agencies, consultancies, and product teams to showcase services, case studies, and blogs with sleek, responsive, CMS-powered design."
+  dataWfPage="68930a4b3b4b1cf5e3e64ea3"
 >
-  <section class="py-20 sm:py-28 bg-neutral-950 text-white relative overflow-hidden">
-    <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl space-y-4">
-        <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
-          Changelog
-        </h1>
-        <p class="display-subhead text-neutral-400 leading-relaxed max-w-2xl">
-          Continuous iteration and refinement across our studio architecture, design systems, and public resources.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 sm:py-28 bg-white text-neutral-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      {updates.map((up) => (
-        <div class="border-l-2 border-indigo-600 pl-6 sm:pl-8 space-y-4">
-          <div class="flex items-center gap-3 font-mono text-xs text-neutral-500">
-            <span class="px-2.5 py-0.5 rounded bg-indigo-50 border border-indigo-200 text-indigo-700 font-bold">
-              {up.version}
-            </span>
-            <span>•</span>
-            <span>{up.date}</span>
-          </div>
-
-          <h2 class="font-display font-bold text-2xl text-neutral-950">
-            {up.title}
-          </h2>
-
-          <ul class="space-y-2 text-sm text-neutral-600">
-            {up.notes.map((note) => (
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-600 font-bold">✓</span>
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </section>
+<section class="template-hero-section"><div class="w-layout-blockcontainer container w-container"><div class="common-heading-div text-center"><h1 class="h1-heading">Changelog</h1><a data-w-id="02fa1829-6cb7-35df-1399-0371df18d32e" href="/" class="arrow-button-link w-inline-block"><div class="arrow-button-div"><div>Back to Homepage</div></div><div class="button-arrow-icon-div"><img src="/images/button-arrow.svg" loading="eager" alt="arrow icon" decoding="async" width="24" height="24" class="button-arrow-icon _01"><img src="/images/button-arrow.svg" loading="eager" alt="arrow icon" decoding="async" width="24" height="24" class="button-arrow-icon _02"></div></a></div></div></section><section class="section padding-top"><div class="w-layout-blockcontainer container w-container"><div class="common-heading-div"><div class="h5-heading">Version 1.0</div><div class="large-paragraph">Initial Version Released. - soale Template</div></div></div></section><footer data-wf--footer--variant="base" class="footer w-variant-5d5f9124-0cb4-afa2-7ecf-b659e3494a8f"><div class="w-layout-blockcontainer container w-container"><div data-w-id="27f70677-75bf-a86c-24f6-d3410ee1e56a" class="footer-detail-div"><div class="footer-link-div"><a href="https://www.instagram.com/" target="_blank" class="paragraph footer-text-link">Instagram</a><a href="https://www.facebook.com/" target="_blank" class="paragraph footer-text-link">Facebook</a><a href="https://www.linkedin.com/" target="_blank" class="paragraph footer-text-link">LinkedIn</a><a href="https://twitter.com/" target="_blank" class="paragraph footer-text-link">X</a></div><div class="footer-link-div"><a href="/about-us" class="paragraph footer-text-link">About us</a><a href="/work" class="paragraph footer-text-link">Work</a><a href="/services" class="paragraph footer-text-link">Services</a><a href="/pricing" class="paragraph footer-text-link">Pricing</a><a href="/blog" class="paragraph footer-text-link">Blog</a><a href="/contact-us" class="paragraph footer-text-link">Contact Us</a></div><div class="footer-link-div"><a href="/templates/license" class="paragraph footer-text-link">License</a><a href="/templates/changelog" class="paragraph footer-text-link">Changelog</a><a href="/templates/styleguide" class="paragraph footer-text-link">Style guide</a></div></div><div data-w-id="27f70677-75bf-a86c-24f6-d3410ee1e588" class="footer-line-div"></div><div data-w-id="27f70677-75bf-a86c-24f6-d3410ee1e589" class="footer-bottom-div"><div class="footer-detail-div"><a href="/" aria-current="page" class="brand-logo-link w-inline-block w--current"><img src="/images/footer-logo.svg" loading="lazy" alt="Logo" class="footer-logo"></a><div class="paragraph medium-font footer-line">|</div><div class="paragraph medium-font">&copy; 2026 Soale Agency. All rights reserved.</div></div><div class="footer-copyright-div"><a href="https://astro.build/" target="_blank" class="footer-copyright-button background-color w-button">Powered by AstroJS</a></div></div></div></footer>
 </Layout>

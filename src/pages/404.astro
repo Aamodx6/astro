@@ -3,40 +3,67 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="404 — Route Not Located | Soale Astra"
-  description="The requested route does not exist in the Soale Astra studio directory."
+  title="Page Not Found — Soale"
+  description="The page you are looking for does not exist or has been moved."
+  dataWfPage="6880e261cef3bfa6896ed9e5"
 >
-  <section class="min-h-[75vh] flex items-center justify-center py-24 bg-neutral-950 text-white relative overflow-hidden">
-    <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
-    <div class="max-w-xl mx-auto px-4 text-center relative z-10 space-y-6">
-      
-      <div class="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-rose-400 inline-block">
-        HTTP 404 // ROUTE DISCONNECTED
+  <header class="header w-nav">
+    <div class="container w-container">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo-link w-nav-brand">
+          <img src="/images/logo.svg" alt="Soale Logo" class="logo" />
+        </a>
+        <nav class="nav-menu w-nav-menu">
+          <div class="nav-menu-div">
+            <a href="/about-us" class="nav-link w-nav-link">About us</a>
+            <a href="/work" class="nav-link w-nav-link">Work</a>
+            <a href="/services" class="nav-link w-nav-link">Services</a>
+            <a href="/pricing" class="nav-link w-nav-link">Pricing</a>
+            <a href="/blog" class="nav-link w-nav-link">Blog</a>
+          </div>
+        </nav>
+        <div class="nav-button-div">
+          <a href="/contact-us" class="common-button nav-button w-button">Book 1:1 Meeting</a>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
-        Coordinate Not Found.
-      </h1>
+  <section class="home-hero-section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+    <div class="hero-circle-wrapper _404-page">
+      <div class="black-background-circle _404-page"></div>
+      <div class="gradient-circle _404-page"></div>
+    </div>
+    <div class="circle-left _404-page"></div>
+    <div class="circle-left right _404-page"></div>
+    <img src="/images/hero-bg.webp" alt="Hero Background" class="hero-background-image" />
 
-      <p class="text-neutral-400 text-base leading-relaxed">
-        The interface node you attempted to access does not exist or has been refactored during our studio system evolution.
+    <div class="w-layout-blockcontainer container w-container" style="position: relative; z-index: 10; text-align: center;">
+      <div class="hero-sub-heading-div" style="margin-left: auto; margin-right: auto;">
+        <img src="/images/star.svg" alt="Star Icon" class="sub-heading-icon" />
+        <div class="small-paragraph white-text hero-sub-heading-text">Error 404 | Coordinate Not Located</div>
+      </div>
+      <h1 class="h1-heading hero-heading" style="margin-top: 24px; font-size: clamp(3rem, 6vw, 5rem);">Page not found</h1>
+      <p class="large-paragraph hero-paragraph" style="margin-top: 16px; margin-left: auto; margin-right: auto; max-width: 600px;">
+        The page you are looking for doesn't exist, was renamed, or has temporarily drifted off the digital grid.
       </p>
-
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/"
-          class="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-neutral-950 bg-white rounded-xl hover:bg-neutral-100 transition-colors"
-        >
-          Return to Studio Home
-        </a>
-        <a
-          href="/work"
-          class="w-full sm:w-auto px-6 py-3 text-sm font-medium text-neutral-300 bg-neutral-900 border border-neutral-800 rounded-xl hover:text-white transition-colors"
-        >
-          Explore Selected Work
-        </a>
+      <div style="margin-top: 32px;">
+        <a href="/" class="common-button w-button" style="padding: 16px 36px; border-radius: 100px;">Back to Homepage</a>
       </div>
-
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="footer-bottom-div">
+        <div class="footer-detail-div">
+          <a href="/" class="brand-logo-link w-inline-block">
+            <img src="/images/footer-logo.svg" alt="Logo" class="footer-logo" />
+          </a>
+          <div class="paragraph medium-font footer-line">|</div>
+          <div class="paragraph medium-font">&copy; 2026 Soale Agency. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </Layout>
