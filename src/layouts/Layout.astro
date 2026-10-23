@@ -66,6 +66,37 @@ const {
         height: 8px;
         border-radius: 100px !important;
       }
+
+      /* Clean 2-column flexbox grid for portfolio cards without float snagging */
+      .w-dyn-items.w-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+      }
+      .w-dyn-items.w-row:before,
+      .w-dyn-items.w-row:after {
+        display: none !important;
+      }
+      .collection-item.w-dyn-item.w-col.w-col-6 {
+        float: none !important;
+        width: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-sizing: border-box !important;
+      }
+      .our-work-tab-card {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+      .our-work-tab-card .work-small-image-div {
+        margin-top: auto !important;
+      }
+      @media screen and (max-width: 767px) {
+        .collection-item.w-dyn-item.w-col.w-col-6 {
+          width: 100% !important;
+        }
+      }
     </style>
   </head>
   <body class="body">
