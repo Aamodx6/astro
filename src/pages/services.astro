@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { servicesData } from '../data/site';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+---
+
+<Layout
+  title="Services & Capabilities | Soale Astra"
+  description="Explore our specialized digital product disciplines: AI interface design, product strategy, UI/UX architecture, design systems, and rapid MVP prototyping."
+>
+  <!-- Services Hero -->
+  <section class="py-20 sm:py-28 bg-neutral-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 dark-grid-backdrop opacity-25 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-cyan-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          <span>Studio Capabilities</span>
+        </div>
+        <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
+          Disciplines built for modern software.
+        </h1>
+        <p class="display-subhead text-neutral-400 leading-relaxed max-w-2xl">
+          We don't offer generic creative services. Every capability in our studio is specifically engineered to derisk product development, eliminate UX friction, and turn breakthrough algorithms into beloved software products.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Services Detail List -->
+  <section class="py-24 sm:py-32 bg-neutral-50 text-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+      {servicesData.map((service, index) => {
+        const isReversed = index % 2 === 1;
+        return (
+          <div id={service.id} class="rounded-3xl bg-white border border-neutral-200/90 p-8 sm:p-12 lg:p-16 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+              
+              <div class={`lg:col-span-6 space-y-6 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-md">
+                    0{index + 1} // Discipline
+                  </span>
+                  <span class="text-xs font-mono text-neutral-500">
+                    {service.metrics}
+                  </span>
+                </div>
+
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-neutral-950 tracking-tight">
+                  {service.title}
+                </h2>
+
+                <p class="font-display font-medium text-lg text-indigo-900/80 leading-relaxed">
+                  {service.subtitle}
+                </p>
+
+                <p class="text-neutral-600 text-base leading-relaxed">
+                  {service.description}
+                </p>
+
+                <!-- Value Outcome -->
+                <div class="p-4 rounded-xl bg-neutral-50 border-l-4 border-indigo-600">
+                  <div class="text-xs font-mono uppercase text-neutral-500 font-semibold mb-1">Business Impact</div>
+                  <p class="text-neutral-800 text-sm font-medium">{service.outcome}</p>
+                </div>
+
+                <div class="pt-4">
+                  <a
+                    href={`/contact-us?service=${service.id}`}
+                    class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-neutral-950 rounded-xl hover:bg-indigo-600 transition-colors shadow-sm"
+                  >
+                    <span>Request Scoping for this Service</span>
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Deliverables Box -->
+              <div class={`lg:col-span-6 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
+                <div class="rounded-2xl bg-neutral-900 text-white p-8 sm:p-10 border border-neutral-800 space-y-6">
+                  <div class="flex items-center justify-between pb-4 border-b border-neutral-800">
+                    <span class="text-xs font-mono uppercase tracking-wider text-indigo-400 font-semibold">
+                      Contract Deliverables
+                    </span>
+                    <span class="text-xs font-mono text-neutral-400">Guaranteed Specs</span>
+                  </div>
+
+                  <ul class="space-y-4">
+                    {service.deliverables.map((d) => (
+                      <li class="flex items-start gap-3">
+                        <div class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                          ✓
+                        </div>
+                        <span class="text-sm text-neutral-300 leading-relaxed font-normal">{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div class="pt-6 border-t border-neutral-800/80 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span class="px-2.5 py-1 rounded bg-neutral-800 text-neutral-300 text-xs font-mono">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Process Embedded -->
+  <ProcessTimeline />
+
+  <CtaBanner />
+</Layout>

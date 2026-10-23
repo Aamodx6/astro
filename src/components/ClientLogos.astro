@@ -1,0 +1,30 @@
+---
+import { clientLogos } from '../data/site';
+---
+
+<section class="py-12 bg-neutral-900 border-b border-neutral-800 text-neutral-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <div class="text-xs font-mono uppercase tracking-widest text-neutral-500 font-medium whitespace-nowrap">
+        Trusted by Ambitious Product Teams
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center md:justify-end gap-8 sm:gap-12 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+        {clientLogos.map((client) => (
+          <div class="flex items-center gap-2 group">
+            <img
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="h-7 w-auto object-contain filter invert opacity-80 group-hover:opacity-100 transition-opacity"
+              loading="lazy"
+              width="120"
+              height="28"
+            />
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

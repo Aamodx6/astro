@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Studio Style Guide & Design Tokens | Soale Astra"
+  description="The foundational design tokens, typographic hierarchy, component primitives, and color systems powering the Soale Astra digital experience."
+>
+  <section class="py-20 sm:py-28 bg-neutral-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-indigo-400">
+          <span>Design Architecture</span>
+        </div>
+        <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
+          Style Guide &amp; Tokens
+        </h1>
+        <p class="display-subhead text-neutral-400 leading-relaxed max-w-2xl">
+          The verified design tokens and semantic primitives powering Soale Astra. Built with WCAG 2.2 AA accessibility and zero unnecessary runtime dependencies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-28 bg-white text-neutral-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      
+      <!-- Color Palette -->
+      <div class="space-y-6">
+        <h2 class="font-display font-bold text-2xl text-neutral-950 pb-2 border-b border-neutral-200">
+          01 // Color Tokens
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="space-y-2">
+            <div class="h-24 rounded-xl bg-neutral-950 border border-neutral-800"></div>
+            <div class="font-mono text-xs font-bold text-neutral-900">Ink Void</div>
+            <div class="font-mono text-[11px] text-neutral-500">#09090B</div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-24 rounded-xl bg-indigo-600"></div>
+            <div class="font-mono text-xs font-bold text-neutral-900">Electric Indigo</div>
+            <div class="font-mono text-[11px] text-neutral-500">#4F46E5</div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-24 rounded-xl bg-cyan-600"></div>
+            <div class="font-mono text-xs font-bold text-neutral-900">Cyber Cyan</div>
+            <div class="font-mono text-[11px] text-neutral-500">#0891B2</div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-24 rounded-xl bg-neutral-100 border border-neutral-200"></div>
+            <div class="font-mono text-xs font-bold text-neutral-900">Warm Canvas</div>
+            <div class="font-mono text-[11px] text-neutral-500">#FAFAFA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="space-y-6">
+        <h2 class="font-display font-bold text-2xl text-neutral-950 pb-2 border-b border-neutral-200">
+          02 // Typographic Hierarchy
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <div class="text-xs font-mono text-neutral-400 mb-1">Display Hero — Plus Jakarta Sans 800</div>
+            <div class="display-hero font-display font-extrabold text-neutral-950 tracking-tight">
+              Designing what AI makes possible.
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-neutral-400 mb-1">Section Heading — Plus Jakarta Sans 700</div>
+            <div class="display-section font-display font-bold text-neutral-950 tracking-tight">
+              Engineered for clarity. Designed for scale.
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-neutral-400 mb-1">Body Text — Inter 400</div>
+            <p class="text-neutral-600 text-base leading-relaxed max-w-2xl">
+              We turn unpredictable LLM inputs, tool-calling chains, and multi-agent systems into intuitive, legible interfaces that instill user confidence and eliminate prompt anxiety.
+            </p>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-neutral-400 mb-1">Code &amp; Metadata — JetBrains Mono 500</div>
+            <div class="font-mono text-sm text-indigo-600">
+              const studio = await SoaleAstra.create(&#123; craft: 'exceptional' &#125;);
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button Primitives -->
+      <div class="space-y-6">
+        <h2 class="font-display font-bold text-2xl text-neutral-950 pb-2 border-b border-neutral-200">
+          03 // Interactive Primitives
+        </h2>
+        <div class="flex flex-wrap gap-4 items-center">
+          <button class="px-6 py-3 text-sm font-semibold text-white bg-neutral-950 rounded-xl hover:bg-indigo-600 transition-colors shadow-sm">
+            Primary Action
+          </button>
+          <button class="px-6 py-3 text-sm font-semibold text-neutral-900 bg-white border border-neutral-300 rounded-xl hover:bg-neutral-100 transition-colors">
+            Secondary Action
+          </button>
+          <button class="px-4 py-2 text-xs font-mono font-medium text-indigo-700 bg-indigo-50 border border-indigo-200 rounded-lg">
+            Metadata Pill
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

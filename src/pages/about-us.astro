@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const principles = [
+  {
+    num: '01',
+    title: 'Clarity over Cleverness',
+    desc: 'The best software feels effortless. We eliminate cognitive friction, superfluous decoration, and ambiguous affordances so users immediately understand what your product can do.'
+  },
+  {
+    num: '02',
+    title: 'Velocity Without Technical Debt',
+    desc: 'Moving fast should never mean hacking together throwaway designs. We architect modular design tokens, scalable component kits, and accessible patterns that your engineering team can build on for years.'
+  },
+  {
+    num: '03',
+    title: 'Evidence-Driven Ergonomics',
+    desc: 'We do not guess how users behave. Every major interaction pattern, prompt flow, and conversion funnel is backed by user testing, task completion timing, and clear behavioral heuristics.'
+  },
+  {
+    num: '04',
+    title: 'Deep Engineering Empathy',
+    desc: 'We are designers who code and understand distributed systems, API latency, responsive constraints, and browser rendering engines. What we design is intentionally built to be implemented seamlessly.'
+  }
+];
+
+const teamMembers = [
+  {
+    name: 'Soren Vance',
+    role: 'Creative Director & Founder',
+    bio: 'Former head of design at frontier AI and developer tooling startups. Obsessed with typographic rhythm, spatial interfaces, and agentic UX.',
+    avatar: '/images/user1.png'
+  },
+  {
+    name: 'Aria Thorne',
+    role: 'Principal Product Strategist',
+    bio: 'Specialist in 0-to-1 SaaS activation funnels, JTBD customer discovery sprints, and user retention mechanics.',
+    avatar: '/images/user2.png'
+  },
+  {
+    name: 'Kaelen Miller',
+    role: 'Design Engineering Lead',
+    bio: 'Bridges Figma and production code. Architect of accessible design systems, fluid responsive engines, and token pipelines.',
+    avatar: '/images/user3.png'
+  },
+  {
+    name: 'Maya Lin',
+    role: 'AI Interaction & Motion Lead',
+    bio: 'Designs micro-interactions, latency-masking feedback states, and cognitive ergonomics for generative AI tools.',
+    avatar: '/images/user4.png'
+  }
+];
+---
+
+<Layout
+  title="About Us & Studio Philosophy | Soale Astra"
+  description="Learn about Soale Astra's philosophy, our team, and our mission to design intuitive, high-impact digital products for the AI era."
+>
+  <!-- About Hero -->
+  <section class="py-20 sm:py-32 bg-neutral-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 dark-grid-backdrop opacity-25 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-indigo-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+          <span>Studio Philosophy</span>
+        </div>
+        <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
+          We design with purpose. <br />
+          We build with intelligence.
+        </h1>
+        <p class="display-subhead text-neutral-400 leading-relaxed">
+          Soale Astra is an independent product design and AI interface studio. We exist to help ambitious teams design smarter, ship faster, and deliver category-defining digital experiences — without the agency fluff.
+        </p>
+      </div>
+
+      <!-- Studio Metrics Grid -->
+      <div class="mt-16 pt-12 border-t border-neutral-800/80 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">2018</div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1">Studio Founded</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">150+</div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1">Shipped Releases</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">99.4%</div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1">Sprint Accuracy</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">Zero</div>
+          <div class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-1">Generic Templates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Ethos & Principles -->
+  <section class="py-24 sm:py-32 bg-white text-neutral-900 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl space-y-4 pb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-mono font-medium text-indigo-700">
+          <span>Operating Heuristics</span>
+        </div>
+        <h2 class="display-section font-display font-bold tracking-tight text-neutral-950">
+          Principles that guide every pixel.
+        </h2>
+        <p class="text-neutral-600 text-lg leading-relaxed">
+          We don't rely on aesthetic whims or fleeting design trends. Our studio operates on proven principles developed over eight years of shipping software.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {principles.map((p) => (
+          <div class="rounded-2xl bg-neutral-50 border border-neutral-200/90 p-8 sm:p-10 space-y-4 hover:border-indigo-300 hover:shadow-lg transition-all">
+            <span class="font-mono text-sm font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded border border-indigo-200">
+              {p.num}
+            </span>
+            <h3 class="font-display font-bold text-2xl text-neutral-950 pt-2">
+              {p.title}
+            </h3>
+            <p class="text-neutral-600 text-base leading-relaxed">
+              {p.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Leadership & Core Team -->
+  <section class="py-24 sm:py-32 bg-neutral-50 text-neutral-900 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl space-y-4 pb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-200 text-xs font-mono font-medium text-neutral-800">
+          <span>Studio Leadership</span>
+        </div>
+        <h2 class="display-section font-display font-bold tracking-tight text-neutral-950">
+          Minds behind the craft.
+        </h2>
+        <p class="text-neutral-600 text-lg leading-relaxed">
+          A compact, senior squad of designers, strategists, and frontend architects. When you hire Soale Astra, you work directly with partners, never junior delegates.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {teamMembers.map((member) => (
+          <div class="rounded-2xl bg-white border border-neutral-200/90 p-6 flex flex-col justify-between hover:border-neutral-300 hover:shadow-md transition-all">
+            <div class="space-y-4">
+              <img
+                src={member.avatar}
+                alt={member.name}
+                class="w-20 h-20 rounded-2xl object-cover bg-neutral-200 border border-neutral-300"
+                loading="lazy"
+                width="80"
+                height="80"
+              />
+              <div>
+                <h3 class="font-display font-bold text-xl text-neutral-950">{member.name}</h3>
+                <div class="text-xs font-mono text-indigo-600 font-medium mt-0.5">{member.role}</div>
+              </div>
+              <p class="text-neutral-600 text-xs leading-relaxed">
+                {member.bio}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <CtaBanner />
+</Layout>

@@ -1,0 +1,81 @@
+---
+import { processPhases } from '../data/site';
+---
+
+<section id="process" class="py-24 sm:py-32 bg-neutral-950 text-white relative overflow-hidden">
+  <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl space-y-4 pb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono font-medium text-indigo-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+        <span>Studio Delivery Methodology</span>
+      </div>
+      <h2 class="display-section font-display font-bold tracking-tight text-white">
+        A disciplined path from <br />
+        ambiguous brief to shipped product.
+      </h2>
+      <p class="text-neutral-400 text-lg leading-relaxed">
+        No mysterious handoffs or endless workshops. We operate in tight, predictable sprints with full transparency into milestones, client contributions, and shipped artifacts.
+      </p>
+    </div>
+
+    <!-- Connected Process Timeline -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pt-6">
+      {processPhases.map((phase) => (
+        <div class="relative rounded-2xl bg-neutral-900/90 border border-neutral-800 p-6 flex flex-col justify-between hover:border-indigo-500/50 hover:bg-neutral-900 transition-all duration-300">
+          
+          <div class="space-y-4">
+            <!-- Phase Number & Duration -->
+            <div class="flex items-center justify-between pb-3 border-b border-neutral-800">
+              <span class="font-mono text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+                {phase.phase}
+              </span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-300">
+                {phase.duration}
+              </span>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <div class="space-y-1">
+              <div class="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">{phase.step}</div>
+              <h3 class="font-display font-bold text-lg text-white">
+                {phase.title}
+              </h3>
+            </div>
+
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              {phase.subtitle}
+            </p>
+
+            <!-- Highlights -->
+            <ul class="space-y-1.5 pt-2 text-[11px] font-mono text-neutral-300">
+              {phase.highlights.map((h) => (
+                <li class="flex items-center gap-1.5">
+                  <span class="text-indigo-400 font-bold">•</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Client Input vs Studio Output Breakdown -->
+          <div class="pt-4 mt-6 border-t border-neutral-800/80 space-y-2 text-[11px]">
+            <div>
+              <span class="text-neutral-500 font-mono">Input:</span>
+              <p class="text-neutral-400 text-[11px] leading-tight mt-0.5">{phase.clientInput}</p>
+            </div>
+            <div>
+              <span class="text-emerald-400 font-mono">Output:</span>
+              <p class="text-neutral-300 text-[11px] font-medium leading-tight mt-0.5">{phase.studioOutput}</p>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

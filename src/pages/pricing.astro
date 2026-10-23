@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingSection from '../components/PricingSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const comparisonRows = [
+  { feature: 'Core Product UX/UI Screens', starter: 'Up to 8 screens', growth: 'Unlimited active queue', custom: 'Full platform architecture' },
+  { feature: 'Design System & Token Architecture', starter: 'Foundational Kit', growth: 'Full Multi-Brand Tokens', custom: 'Enterprise Token Monorepo' },
+  { feature: 'Interactive Clickable Prototype', starter: 'Figma High-Fi', growth: 'Figma + Micro-interactions', custom: 'Full Production Code Mocks' },
+  { feature: 'AI Workflow & Prompt Ergonomics', starter: 'Basic Flows', growth: 'Multi-Agent Canvas UX', custom: 'Custom Stochastic Models' },
+  { feature: 'Turnaround Speed per Request', starter: 'Fixed Sprint', growth: '48–72 Hours Average', custom: 'Dedicated Studio Squad' },
+  { feature: 'Direct Engineering Pairing', starter: 'Handoff Loom', growth: 'Weekly Sprint Syncs', custom: 'Direct Slack / GitHub Pairing' },
+  { feature: 'Accessibility Compliance', starter: 'WCAG 2.2 AA', growth: 'WCAG 2.2 AA Verified', custom: 'WCAG 2.2 AAA Certified' },
+  { feature: 'Pause or Cancel Flexibility', starter: 'Milestone fixed', growth: '14-day notice, anytime', custom: 'Custom Milestone SLA' }
+];
+---
+
+<Layout
+  title="Pricing & Engagement Models | Soale Astra"
+  description="Transparent, predictable pricing for world-class digital product design. Explore sprint packages, monthly studio retainers, and enterprise partnerships."
+>
+  <PricingSection isPageHero={true} />
+
+  <!-- Detailed Deliverables Comparison Table -->
+  <section class="py-20 sm:py-28 bg-white text-neutral-900 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4 pb-16">
+        <h2 class="display-section font-display font-bold tracking-tight text-neutral-950">
+          Feature &amp; Scope Comparison
+        </h2>
+        <p class="text-neutral-600 text-base leading-relaxed">
+          Evaluate what is included across each studio tier to select the ideal operational model for your team.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse min-w-[640px]">
+          <thead>
+            <tr class="border-b border-neutral-300 text-xs font-mono uppercase text-neutral-500">
+              <th class="py-4 px-6 font-semibold">Capability</th>
+              <th class="py-4 px-6 font-semibold">Sprint MVP</th>
+              <th class="py-4 px-6 font-semibold text-indigo-600">Product Growth</th>
+              <th class="py-4 px-6 font-semibold">Bespoke Studio</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 text-sm">
+            {comparisonRows.map((row) => (
+              <tr class="hover:bg-neutral-50 transition-colors">
+                <td class="py-4 px-6 font-medium text-neutral-900">{row.feature}</td>
+                <td class="py-4 px-6 text-neutral-600">{row.starter}</td>
+                <td class="py-4 px-6 text-indigo-900 font-medium bg-indigo-50/40">{row.growth}</td>
+                <td class="py-4 px-6 text-neutral-600">{row.custom}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <FaqSection />
+
+  <CtaBanner />
+</Layout>

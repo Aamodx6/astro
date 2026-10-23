@@ -1,0 +1,64 @@
+---
+import { faqData } from '../data/site';
+---
+
+<section id="faq" class="py-24 sm:py-32 bg-neutral-50 text-neutral-900 border-b border-neutral-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center space-y-4 pb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-200/80 text-xs font-mono font-medium text-neutral-800">
+        <span class="w-1.5 h-1.5 rounded-full bg-neutral-600"></span>
+        <span>Everything You Need to Know</span>
+      </div>
+      <h2 class="display-section font-display font-bold tracking-tight text-neutral-950">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+        Clear answers regarding studio onboarding, IP ownership, design sprints, and production collaboration.
+      </p>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4">
+      {faqData.map((item, index) => (
+        <details class="group rounded-2xl bg-white border border-neutral-200/90 shadow-sm transition-all duration-200 overflow-hidden [&[open]]:border-indigo-300 [&[open]]:shadow-md">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer select-none list-none font-display font-bold text-lg text-neutral-900 hover:text-indigo-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 rounded-2xl">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-neutral-400 group-open:text-indigo-600">
+                0{index + 1}
+              </span>
+              <span>{item.question}</span>
+            </span>
+            <span class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0 group-open:bg-indigo-50 group-open:text-indigo-600 transition-transform duration-200 group-open:rotate-180">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-neutral-600 text-sm sm:text-base leading-relaxed border-t border-neutral-100 mt-2 font-normal">
+            {item.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Still have questions? -->
+    <div class="mt-12 text-center">
+      <p class="text-sm text-neutral-500 font-mono">
+        Have a specialized project or question not covered here?
+      </p>
+      <a
+        href="/contact-us"
+        class="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 hover:underline"
+      >
+        <span>Speak directly with our creative director</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

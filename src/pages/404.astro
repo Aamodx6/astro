@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 — Route Not Located | Soale Astra"
+  description="The requested route does not exist in the Soale Astra studio directory."
+>
+  <section class="min-h-[75vh] flex items-center justify-center py-24 bg-neutral-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 dark-grid-backdrop opacity-20 pointer-events-none"></div>
+    <div class="max-w-xl mx-auto px-4 text-center relative z-10 space-y-6">
+      
+      <div class="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-rose-400 inline-block">
+        HTTP 404 // ROUTE DISCONNECTED
+      </div>
+
+      <h1 class="display-hero font-display font-extrabold tracking-tight text-white">
+        Coordinate Not Found.
+      </h1>
+
+      <p class="text-neutral-400 text-base leading-relaxed">
+        The interface node you attempted to access does not exist or has been refactored during our studio system evolution.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-neutral-950 bg-white rounded-xl hover:bg-neutral-100 transition-colors"
+        >
+          Return to Studio Home
+        </a>
+        <a
+          href="/work"
+          class="w-full sm:w-auto px-6 py-3 text-sm font-medium text-neutral-300 bg-neutral-900 border border-neutral-800 rounded-xl hover:text-white transition-colors"
+        >
+          Explore Selected Work
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

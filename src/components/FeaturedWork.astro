@@ -1,0 +1,134 @@
+---
+import workData from '../data/work.json';
+
+const featuredSlugs = [
+  'neuroniq-ai-powered-hiring-assistant',
+  'echo-ai-analytics-platform-design',
+  'orbitpay-banking-and-fintech-app',
+  'nanobot--ai-chat-experience'
+];
+
+const featuredProjects = workData.filter(p => featuredSlugs.includes(p.slug));
+---
+
+<section id="work" class="py-24 sm:py-32 bg-neutral-50 text-neutral-900 border-b border-neutral-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-16 border-b border-neutral-200">
+      <div class="space-y-4 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-xs font-mono font-medium text-indigo-700">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
+          <span>Selected Case Studies</span>
+        </div>
+        <h2 class="display-section font-display font-bold tracking-tight text-neutral-950">
+          Work that solves real <br />
+          engineering &amp; market problems.
+        </h2>
+      </div>
+
+      <div>
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-neutral-900 bg-white border border-neutral-300 rounded-xl hover:bg-neutral-100 hover:border-neutral-400 transition-all shadow-sm"
+        >
+          <span>Explore All 9 Projects</span>
+          <svg class="w-4 h-4 text-neutral-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured Projects Grid with Varied Editorial Compositions -->
+    <div class="pt-16 space-y-16 lg:space-y-24">
+      {featuredProjects.map((project, idx) => {
+        const isReversed = idx % 2 === 1;
+        return (
+          <article class="group relative rounded-3xl bg-white border border-neutral-200/80 p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-xl hover:border-neutral-300 transition-all duration-300">
+            <div class={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+              
+              <!-- Text Details Column -->
+              <div class={`lg:col-span-5 space-y-6 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+                
+                <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-neutral-500">
+                  <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 font-medium">
+                    {project.category}
+                  </span>
+                  <span>•</span>
+                  <span>{project.year}</span>
+                </div>
+
+                <h3 class="font-display font-bold text-2xl sm:text-3xl tracking-tight text-neutral-950 group-hover:text-indigo-600 transition-colors">
+                  <a href={`/work/${project.slug}`}>
+                    {project.title}
+                  </a>
+                </h3>
+
+                <p class="text-neutral-600 text-base leading-relaxed">
+                  {project.description}
+                </p>
+
+                <!-- Key deliverables / tags -->
+                <div class="pt-2">
+                  <div class="text-xs font-mono uppercase text-neutral-400 tracking-wider mb-2">Deliverables</div>
+                  <div class="flex flex-wrap gap-1.5">
+                    {project.deliverables.map((item) => (
+                      <span class="px-2.5 py-0.5 rounded-md bg-neutral-100 border border-neutral-200/60 text-xs font-mono text-neutral-600">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- CTA Link -->
+                <div class="pt-4">
+                  <a
+                    href={`/work/${project.slug}`}
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 group-hover:text-indigo-700 hover:underline"
+                  >
+                    <span>Read Full Case Study</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+
+              <!-- Media Preview Column -->
+              <div class={`lg:col-span-7 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
+                <a href={`/work/${project.slug}`} class="block overflow-hidden rounded-2xl bg-neutral-100 border border-neutral-200/60 aspect-[16/10] relative group-hover:shadow-md transition-shadow">
+                  <img
+                    src={project.heroImage}
+                    alt={`${project.title} interface preview`}
+                    class="w-full h-full object-cover object-top transform group-hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/10 transition-colors pointer-events-none"></div>
+                </a>
+              </div>
+
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Bottom Portfolio CTA -->
+    <div class="mt-16 text-center">
+      <p class="text-neutral-500 text-sm font-mono mb-4">
+        Looking for a specific domain? We've designed healthcare, devtools, AI agents, fintech, and hardware interfaces.
+      </p>
+      <a
+        href="/work"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-neutral-950 rounded-xl hover:bg-indigo-600 transition-colors"
+      >
+        <span>View Full Portfolio &amp; Filter By Category</span>
+      </a>
+    </div>
+
+  </div>
+</section>
